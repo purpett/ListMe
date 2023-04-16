@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function NewListModal(props) {
   return (
+    // https://reactcommunity.org/react-modal/ for react-modal documentation
     <ReactModal
       isOpen={props.isOpen}
       contentLabel='Form to decide list name and category'

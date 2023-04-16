@@ -10,7 +10,31 @@ import NewListModal from './NewListModal';
 
 function App() {
 
-  // https://reactcommunity.org/react-modal/ for react-modal documentation
+  const [lists, setLists] = useState([])
+
+  function createList(newList) {
+    setLists([...lists, newList])
+  }
+
+  function editListName(newName, listIndex) {
+    const updatedLists = lists.map((list, i) => {
+      if (i === listIndex) {
+        return { name: newName, items: list.items }
+      }
+      return list
+    })
+
+    setLists(updatedLists)
+  }
+
+  function deleteList(listIndex) {
+    const updatedLists = lists.filter((list, index) => {
+      return index !== listIndex
+    })
+    setLists(updatedLists)
+  }
+
+
 
   return (
     <div className="App">
