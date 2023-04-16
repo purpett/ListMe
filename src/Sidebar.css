@@ -1,0 +1,11 @@
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav{
+    background-color: grey;
+    color: white;
+    width: 25vw;
+    text-align: start;
+}
