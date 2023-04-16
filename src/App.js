@@ -6,13 +6,16 @@ import Homepage from './Homepage';
 import List from './List';
 import PageNotFound from './PageNotFound'
 import './App.css';
+import NewListModal from './NewListModal';
 
 function App() {
+
+  // https://reactcommunity.org/react-modal/ for react-modal documentation
+
   return (
     <div className="App">
       <Sidebar />
       <Routes>
-        { }
         <Route path="/" element={<Homepage />} />
         <Route path="/list-1" element={<List />} />
         <Route path="*" element={<PageNotFound />} />
