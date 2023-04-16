@@ -9,3 +9,7 @@ nav{
     width: 25vw;
     text-align: start;
 }
+
+button.new-list {
+    display: block;
+}

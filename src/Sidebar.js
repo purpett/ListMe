@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom"
 import './Sidebar.css'
+import AllLists from './AllLists'
 
 export default function Sidebar() {
   return (
     <nav>
       <Link to='/'>Homepage</Link>
-      <ul>
-        <li>List 1</li>
-        <li>List 2</li>
-        <li>List 3</li>
-      </ul>
+      <button className="new-list">Create list</button>
+      <AllLists />
     </nav>
   )
 }
