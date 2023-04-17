@@ -94,13 +94,13 @@ function App() {
   // function to flag item (tick, untick)
 
   function toggleItem(listIndex, itemIndex) {
-    const updatedItems = lists[listIndex].map((item, indx) => {
+    const updatedItems = lists[listIndex].items.map((item, indx) => {
       if (indx === itemIndex) {
         return { text: item.text, completed: !item.completed }
       }
       return item
     })
-    setLists(updatedItems)
+    updateList(listIndex, { name: lists[listIndex].name, items: updatedItems })
   }
 
   return (
@@ -119,6 +119,7 @@ function App() {
             deleteListItem={deleteListItem}
             deleteAllItems={deleteAllItems}
             deleteCompletedItems={deleteCompletedItems}
+            toggleItem={toggleItem}
           />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>

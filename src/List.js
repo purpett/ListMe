@@ -9,6 +9,7 @@ export default function List(props) {
 
   const listIndex = parseInt(params.listIndex)
 
+
   function handleInputOnChange(e) {
     setNewItem({ ...newItem, [e.target.name]: e.target.value, completed: false })
   }
@@ -33,7 +34,7 @@ export default function List(props) {
       <div>List category: {props.lists[listIndex].category}
       </div>
 
-      {props.lists[listIndex].items.map((item, index) => <ListItem item={item} key={index} />)}
+      {props.lists[listIndex].items.map((item, index) => <ListItem item={item} key={index} itemIndex={index} toggleItem={props.toggleItem} listIndex={listIndex} />)}
 
       {showForm && <form onSubmit={handleFormOnSubmit}>
         <input
