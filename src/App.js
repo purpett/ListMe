@@ -89,6 +89,7 @@ function App() {
       }
       return list
     })
+    console.log(updatedLists)
     setLists(updatedLists)
   }
 
@@ -124,7 +125,7 @@ function App() {
           />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-      <NewListModal isOpen={showNewListModal} onClose={() => setShowNewListModal(false)} createList={createList} />
+      <NewListModal lists={lists} isOpen={showNewListModal} onClose={() => setShowNewListModal(false)} createList={createList} />
     </div>
   );
 }

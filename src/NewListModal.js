@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 export default function NewListModal(props) {
   const [newListInfo, setNewListInfo] = useState({ name: "", category: "", items: [] })
+  const navigate = useNavigate()
 
   function handleOnChange(e) {
     setNewListInfo({ ...newListInfo, [e.target.name]: e.target.value })
@@ -13,8 +14,12 @@ export default function NewListModal(props) {
   function onSubmit() {
     props.createList(newListInfo)
     props.onClose()
-    setNewListInfo({ name: "", category: "" })
+    setNewListInfo({ name: "", category: "", items: [] })
+    navigate(`/lists/${props.lists.length}`)
   }
+
+  console.log(props.lists)
+
 
   return (
     // https://reactcommunity.org/react-modal/ for react-modal documentation
