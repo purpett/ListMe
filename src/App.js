@@ -9,6 +9,7 @@ import './App.css';
 import NewListModal from './NewListModal';
 
 function App() {
+
   // type of lists: 
   // [
   //   // A single list object
@@ -26,6 +27,7 @@ function App() {
 
 
   const [lists, setLists] = useState([])
+  const [showNewListModal, setShowNewListModal] = useState(false);
 
   function createList(newList) {
     setLists([...lists, newList])
@@ -102,12 +104,13 @@ function App() {
 
   return (
     <div className="App">
-      <Sidebar />
+      <Sidebar showModal={() => setShowNewListModal(true)} />
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<Homepage showModal={() => setShowNewListModal(true)} />} />
         <Route path="/list-1" element={<List />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <NewListModal isOpen={showNewListModal} onClose={() => setShowNewListModal(false)} />
     </div>
   );
 }
