@@ -59,7 +59,7 @@ function App() {
       if (indx === itemIndex) {
         return { text: newText, completed: item.completed }
       }
-      return updatedItems
+      return item
     })
     updateList(listIndex, { name: lists[listIndex].name, items: updatedItems })
   }
@@ -89,6 +89,16 @@ function App() {
   }
 
   // function to flag item (tick, untick)
+
+  function toggleItem(listIndex, itemIndex) {
+    const updatedItems = lists[listIndex].map((item, indx) => {
+      if (indx === itemIndex) {
+        return { text: item.text, completed: !item.completed }
+      }
+      return item
+    })
+    setLists(updatedItems)
+  }
 
   return (
     <div className="App">
