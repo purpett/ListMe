@@ -28,7 +28,7 @@ export default function List(props) {
       <button>Delete list</button>
 
       <button onClick={() => props.deleteAllItems(listIndex)}>Remove all items</button>
-      <button>Remove completed items</button>
+      <button onClick={() => props.deleteCompletedItems(listIndex)}>Remove completed items</button>
 
       <div>List category: {props.lists[listIndex].category}
       </div>
