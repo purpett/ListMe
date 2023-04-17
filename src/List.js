@@ -34,13 +34,22 @@ export default function List(props) {
       <div>List category: {props.lists[listIndex].category}
       </div>
 
-      {props.lists[listIndex].items.map((item, index) => <ListItem item={item} key={index} itemIndex={index} toggleItem={props.toggleItem} listIndex={listIndex} />)}
+      {props.lists[listIndex].items.map((item, index) =>
+        <ListItem
+          item={item}
+          key={index}
+          itemIndex={index}
+          toggleItem={props.toggleItem}
+          listIndex={listIndex}
+          deleteListItem={props.deleteListItem}
+        />)}
 
       {showForm && <form onSubmit={handleFormOnSubmit}>
         <input
           name="text"
           type="text"
           autoFocus="true"
+          required="true"
           value={newItem.text}
           onChange={handleInputOnChange}
         />

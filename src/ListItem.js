@@ -7,7 +7,7 @@ export default function ListItem(props) {
       <li>
         {props.item.text}
         <button onClick={() => props.toggleItem(props.listIndex, props.itemIndex)}><img src="/images/check.svg" /></button>
-        <button><img src="/images/trash-can-outline.svg" alt="trash can outline" /></button>
+        <button onClick={() => props.deleteListItem(props.listIndex, props.itemIndex)}><img src="/images/trash-can-outline.svg" alt="trash can outline" /></button>
       </li>
     </div>
   )
