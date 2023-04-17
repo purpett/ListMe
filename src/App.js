@@ -9,6 +9,21 @@ import './App.css';
 import NewListModal from './NewListModal';
 
 function App() {
+  // type of lists: 
+  // [
+  //   // A single list object
+  //   {
+  //     name: "string", => list name
+  //     items: [
+  //       // An item within a list
+  //       {
+  //         text: "string",
+  //         completed: false,
+  //       }
+  //     ]
+  //   }
+  // ]
+
 
   const [lists, setLists] = useState([])
 
@@ -34,7 +49,46 @@ function App() {
     setLists(updatedLists)
   }
 
+  function createListItem(listIndex, newItem) {
+    setLists([...lists, newItem])
+  }
 
+  function editListItem(newText, listIndex, itemIndex) {
+
+    const updatedItems = lists[listIndex].map((item, indx) => {
+      if (indx === itemIndex) {
+        return { text: newText, completed: item.completed }
+      }
+      return updatedItems
+    })
+    updateList(listIndex, { name: lists[listIndex].name, items: updatedItems })
+  }
+
+  function deleteListItem(listIndex, itemIndex) {
+    const updatedItems = lists[listIndex].items.filter((item, index) => index !== itemIndex)
+    updateList(listIndex, { name: lists[listIndex].name, items: updatedItems })
+  }
+
+  function deleteAllItems(listIndex) {
+    updateList(listIndex, { name: lists[listIndex].name, items: [] })
+  }
+
+  function deleteCompletedItems(listIndex) {
+    const updatedItems = lists[listIndex].items.filter((item) => !item.completed)
+    updateList(listIndex, { name: lists[listIndex].name, items: updatedItems })
+  }
+
+  function updateList(listIndex, newList) {
+    const updatedLists = lists.map((list, i) => {
+      if (i === listIndex) {
+        return newList
+      }
+      return list
+    })
+    setLists(updatedLists)
+  }
+
+  // function to flag item (tick, untick)
 
   return (
     <div className="App">

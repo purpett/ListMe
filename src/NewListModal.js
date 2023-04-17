@@ -20,7 +20,6 @@ export default function NewListModal(props) {
           <option>Select category:</option>
           <option>Movies</option>
           <option>Books</option>
-          <option>Music</option>
           <option>Recipes</option>
           <option>Other</option>
         </select>
