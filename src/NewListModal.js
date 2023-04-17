@@ -13,6 +13,7 @@ export default function NewListModal(props) {
   function onSubmit() {
     props.createList(newListInfo)
     props.onClose()
+    setNewListInfo({ name: "", category: "" })
   }
 
   return (
@@ -51,3 +52,4 @@ export default function NewListModal(props) {
     </ReactModal>
   )
 }
+

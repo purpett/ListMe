@@ -105,10 +105,10 @@ function App() {
 
   return (
     <div className="App">
-      <Sidebar showModal={() => setShowNewListModal(true)} />
+      <Sidebar showModal={() => setShowNewListModal(true)} lists={lists} />
       <Routes>
         <Route path="/" element={<Homepage showModal={() => setShowNewListModal(true)} />} />
-        <Route path="/list-1" element={<List />} />
+        <Route path="/lists/:listIndex" element={<List lists={lists} />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <NewListModal isOpen={showNewListModal} onClose={() => setShowNewListModal(false)} createList={createList} />

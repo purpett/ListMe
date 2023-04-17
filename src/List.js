@@ -1,23 +1,18 @@
 import ListItem from './ListItem'
+import { useParams } from 'react-router-dom' // https://reactrouter.com/en/main/route/route
 
-export default function List() {
-
+export default function List(props) {
+  const params = useParams()
   return (
     <div>
-      <span><h1>Your list name here</h1></span>
+      <h1>{props.lists[parseInt(params.listIndex)].name}</h1>
       <button>Edit name</button>
 
       <button>Delete list</button>
       <button>Remove completed items</button>
 
-      <div>List category: category</div>
-      <ul>
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-      </ul>
+      <div>List category: {props.lists[parseInt(params.listIndex)].category}
+      </div>
 
       <button><img src="/images/plus-circle.svg" /></button>
     </div>
