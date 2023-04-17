@@ -9,23 +9,25 @@ export default function List(props) {
 
   const listIndex = parseInt(params.listIndex)
 
-  function handleOnChange(e) {
+  function handleInputOnChange(e) {
     setNewItem({ ...newItem, [e.target.name]: e.target.value, completed: false })
   }
 
-  function handleOnSubmit(e) {
+  function handleFormOnSubmit(e) {
     e.preventDefault()
     props.createListItem(listIndex, newItem)
     setNewItem({ text: "", completed: false })
     setShowForm(false)
   }
 
+
   return (
     <div>
       <h1>{props.lists[listIndex].name}</h1>
       <button>Edit name</button>
-
       <button>Delete list</button>
+
+      <button onClick={() => props.deleteAllItems(listIndex)}>Remove all items</button>
       <button>Remove completed items</button>
 
       <div>List category: {props.lists[listIndex].category}
@@ -33,20 +35,16 @@ export default function List(props) {
 
       {props.lists[listIndex].items.map((item, index) => <ListItem item={item} key={index} />)}
 
-      {showForm && <form onSubmit={handleOnSubmit}>
+      {showForm && <form onSubmit={handleFormOnSubmit}>
         <input
           name="text"
           type="text"
+          autoFocus="true"
           value={newItem.text}
-          onChange={handleOnChange}
+          onChange={handleInputOnChange}
         />
       </form>}
       <button onClick={() => setShowForm(!showForm)}><img src="/images/plus-circle.svg" /></button>
     </div>
   )
 }
-
-// on click
-// input text --> list item text
-// on enter list item text ends in new state 
-// has to update original list --> createListItem (in app)

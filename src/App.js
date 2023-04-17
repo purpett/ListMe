@@ -108,7 +108,18 @@ function App() {
       <Sidebar showModal={() => setShowNewListModal(true)} lists={lists} />
       <Routes>
         <Route path="/" element={<Homepage showModal={() => setShowNewListModal(true)} />} />
-        <Route path="/lists/:listIndex" element={<List lists={lists} createListItem={createListItem} />} />
+        <Route
+          path="/lists/:listIndex"
+          element={<List
+            lists={lists}
+            createListItem={createListItem}
+            editListName={editListName}
+            deleteList={deleteList}
+            editListItem={editListItem}
+            deleteListItem={deleteListItem}
+            deleteAllItems={deleteAllItems}
+            deleteCompletedItems={deleteCompletedItems}
+          />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <NewListModal isOpen={showNewListModal} onClose={() => setShowNewListModal(false)} createList={createList} />
