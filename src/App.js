@@ -30,6 +30,7 @@ function App() {
   const [lists, setLists] = useState([])
   const [showNewListModal, setShowNewListModal] = useState(false);
 
+
   function createList(newList) {
     setLists([...lists, newList])
   }

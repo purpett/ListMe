@@ -1,6 +1,10 @@
 import ListItem from './ListItem'
 import { useState } from 'react'
-import { useParams } from 'react-router-dom' // https://reactrouter.com/en/main/route/route
+
+// https://reactrouter.com/en/main/route/route
+// https://reactrouter.com/en/main/hooks/use-navigate
+import { useParams, useNavigate } from 'react-router-dom'
+
 
 export default function List(props) {
   const params = useParams()
@@ -9,6 +13,8 @@ export default function List(props) {
   const listIndex = parseInt(params.listIndex)
   const [newListName, setNewListName] = useState(props.lists[listIndex])
   const [showFormListName, setShowFormListName] = useState(false)
+  const navigate = useNavigate()
+
 
   function handleInputOnChange(e) {
     setNewItem({ ...newItem, text: e.target.value, completed: false })
@@ -56,7 +62,7 @@ export default function List(props) {
       </form>}
 
       <button onClick={() => setShowFormListName(!showFormListName)}>Edit name</button>
-      <button>Delete list</button>
+      <button onClick={() => { props.deleteList(listIndex); navigate("/") }}>Delete list</button>
 
       <button onClick={() => props.deleteAllItems(listIndex)}>Remove all items</button>
       <button onClick={() => props.deleteCompletedItems(listIndex)}>Remove completed items</button>
