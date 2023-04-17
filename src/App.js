@@ -15,6 +15,7 @@ function App() {
   //   // A single list object
   //   {
   //     name: "string", => list name
+  //     category: "string", => list category
   //     items: [
   //       // An item within a list
   //       {
@@ -110,7 +111,7 @@ function App() {
         <Route path="/list-1" element={<List />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-      <NewListModal isOpen={showNewListModal} onClose={() => setShowNewListModal(false)} />
+      <NewListModal isOpen={showNewListModal} onClose={() => setShowNewListModal(false)} createList={createList} />
     </div>
   );
 }
