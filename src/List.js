@@ -10,9 +10,6 @@ export default function List(props) {
   const [newListName, setNewListName] = useState(props.lists[listIndex])
   const [showFormListName, setShowFormListName] = useState(false)
 
-
-
-
   function handleInputOnChange(e) {
     setNewItem({ ...newItem, text: e.target.value, completed: false })
   }
@@ -35,6 +32,13 @@ export default function List(props) {
     setShowFormListName(false)
   }
 
+  function handleEscForm(e) {
+    if (e.keyCode == 27) {
+      setShowFormListName(false)
+      setShowFormAddItem(false)
+    }
+  }
+
   return (
     <div>
       {!showFormListName && <h1>{props.lists[listIndex].name}</h1>}
@@ -46,6 +50,7 @@ export default function List(props) {
           required="true"
           value={newListName.name}
           onChange={handleNewNameInputOnChange}
+          onKeyDown={handleEscForm}
         />
 
       </form>}
@@ -78,6 +83,7 @@ export default function List(props) {
           required="true"
           value={newItem.text}
           onChange={handleInputOnChange}
+          onKeyDown={handleEscForm}
         />
       </form>}
       <button onClick={() => setShowFormAddItem(!showFormAddItem)}><img src="/images/plus-circle.svg" /></button>

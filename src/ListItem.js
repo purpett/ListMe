@@ -17,7 +17,7 @@ export default function ListItem(props) {
 
   function handleEscForm(e) {
     if (e.keyCode == 27) {
-      setShowForm(false)
+      setShowForm()
     }
   }
 
