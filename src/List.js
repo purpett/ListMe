@@ -11,7 +11,7 @@ export default function List(props) {
 
 
   function handleInputOnChange(e) {
-    setNewItem({ ...newItem, [e.target.name]: e.target.value, completed: false })
+    setNewItem({ ...newItem, text: e.target.value, completed: false })
   }
 
   function handleFormOnSubmit(e) {
@@ -42,6 +42,7 @@ export default function List(props) {
           toggleItem={props.toggleItem}
           listIndex={listIndex}
           deleteListItem={props.deleteListItem}
+          editListItem={props.editListItem}
         />)}
 
       {showForm && <form onSubmit={handleFormOnSubmit}>

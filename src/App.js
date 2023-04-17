@@ -58,7 +58,7 @@ function App() {
   }
 
   function editListItem(newText, listIndex, itemIndex) {
-    const updatedItems = lists[listIndex].map((item, indx) => {
+    const updatedItems = lists[listIndex].items.map((item, indx) => {
       if (indx === itemIndex) {
         return { text: newText, completed: item.completed }
       }
