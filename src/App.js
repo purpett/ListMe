@@ -53,11 +53,11 @@ function App() {
   }
 
   function createListItem(listIndex, newItem) {
-    setLists([...lists, newItem])
+    const updatedItems = [...lists[listIndex].items, newItem]
+    updateList(listIndex, { name: lists[listIndex].name, items: updatedItems })
   }
 
   function editListItem(newText, listIndex, itemIndex) {
-
     const updatedItems = lists[listIndex].map((item, indx) => {
       if (indx === itemIndex) {
         return { text: newText, completed: item.completed }
@@ -108,7 +108,7 @@ function App() {
       <Sidebar showModal={() => setShowNewListModal(true)} lists={lists} />
       <Routes>
         <Route path="/" element={<Homepage showModal={() => setShowNewListModal(true)} />} />
-        <Route path="/lists/:listIndex" element={<List lists={lists} />} />
+        <Route path="/lists/:listIndex" element={<List lists={lists} createListItem={createListItem} />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <NewListModal isOpen={showNewListModal} onClose={() => setShowNewListModal(false)} createList={createList} />

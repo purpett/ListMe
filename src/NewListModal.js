@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 
 export default function NewListModal(props) {
-  const [newListInfo, setNewListInfo] = useState({ name: "", category: "" })
+  const [newListInfo, setNewListInfo] = useState({ name: "", category: "", items: [] })
 
   function handleOnChange(e) {
     setNewListInfo({ ...newListInfo, [e.target.name]: e.target.value })
