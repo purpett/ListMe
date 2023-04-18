@@ -48,7 +48,7 @@ export default function ListItem(props) {
             className='item-input'
           />
         </form>}
-        {/* {!showForm && <button onClick={() => props.deleteListItem(props.listIndex, props.itemIndex)}><img src="/images/trash-can-outline.svg" alt="trash can outline" /></button>} */}
+        {!showForm && <img className="hidden delete-btn" src="/images/trash-can-outline.svg" alt="trash can outline" onClick={() => props.deleteListItem(props.listIndex, props.itemIndex)} />}
       </div>
     </li>
   )

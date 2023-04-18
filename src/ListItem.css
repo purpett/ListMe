@@ -48,3 +48,19 @@
 .completed {
   text-decoration: line-through;
 }
+
+.hidden {
+  display: none;
+  margin-left: 1rem;
+}
+
+.list-item:hover .delete-btn {
+  display: inline;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  transform: scale(1.2);
+  transition: all 250ms;
+}
