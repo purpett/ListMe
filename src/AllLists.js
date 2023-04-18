@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom"; //https://reactrouter.com/en/main/components/nav-link
 import "./AllLists.css"
+import './App.css'
+
 
 export default function AllLists(props) {
   const listLinks = props.lists.map((item, index) => {
@@ -10,7 +12,7 @@ export default function AllLists(props) {
     )
   });
   return (
-    <ul className="List">
+    <ul className="sidebar-lists">
       {listLinks}
     </ul>
   )

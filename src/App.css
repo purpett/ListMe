@@ -10,6 +10,33 @@
   
 }
 
+.dark-btn {
+  background-color: #8d7d6c;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 250ms;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+}
+
+.dark-btn:hover {
+box-shadow: rgba(0, 0, 0, 0.433) 3px 4px 12px;
+transform: scale(1.02);
+}
+
+.dark-btn:active {
+background-color: #d1c2b3;
+box-shadow: rgba(0, 0, 0, 0.06) 0 6px 8px;
+color: #292d2e;
+transform: translateY(0);
+transition: 250ms;
+border: 1px solid #292d2e;
+}
 
 
 

@@ -2,6 +2,8 @@ import { Link } from "react-router-dom"
 import './Sidebar.css'
 import AllLists from './AllLists'
 import NewListModal from './NewListModal'
+import './App.css'
+
 
 export default function Sidebar(props) {
   return (

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './App.css'
 
 export default function ListItem(props) {
   const [newItem, setNewItem] = useState({ text: props.item.text, completed: false })

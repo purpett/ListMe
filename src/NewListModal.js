@@ -2,6 +2,8 @@ import ReactModal from 'react-modal';
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import "./NewListModal.css"
+import './App.css'
+
 
 
 export default function NewListModal(props) {
