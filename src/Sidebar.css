@@ -6,9 +6,9 @@ ul {
 nav{
   background-color: #292d2e;
   color: white;
-  flex-basis: 16%;
+  flex-basis: 15%;
   text-align: start;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 nav .new-list-button {
@@ -22,7 +22,7 @@ nav .new-list-button {
   border-radius: 0.75rem;
   cursor: pointer;
   transition: all 250ms;
-  margin: 1.5rem auto;
+  margin: 1.75rem auto;
   padding: 0.5rem 1rem;
 
 }

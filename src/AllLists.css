@@ -1,0 +1,22 @@
+.list-link {
+  color: #f0e5da;
+  text-decoration: none;
+  font-size: 1.15rem
+}
+
+.list-link:hover {
+  display: inline-block;
+  transform: scale(1.04);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.single-link {
+  margin-bottom: 1rem;
+}
+
+.list-link.active {
+  display: inline-block;
+  transform: scale(1.15);
+  text-shadow: 0 0 12px white;
+}
