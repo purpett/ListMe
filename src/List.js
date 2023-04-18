@@ -3,6 +3,7 @@ import { useState } from 'react'
 // https://reactrouter.com/en/main/route/route
 // https://reactrouter.com/en/main/hooks/use-navigate
 import { useParams, useNavigate } from 'react-router-dom'
+import './List.css'
 
 
 export default function List(props) {

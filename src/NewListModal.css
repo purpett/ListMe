@@ -20,12 +20,13 @@
   align-items: center;
 }
 
-label {
+.modal-content label {
   margin-right: 0.8rem;
   font-size: 1.2rem;
 }
 
-input, select {
+.modal-content input, 
+.modal-content select {
   box-sizing: border-box;
   border: 1px solid #f0e5da;
   padding: 0.4rem;
@@ -37,8 +38,8 @@ input, select {
   margin-right: 2.2rem;
 }
 
-input:focus,
-select:focus {
+.modal-content input:focus,
+.modal-content select:focus {
   outline-color: #f0e5da;
 }
 
