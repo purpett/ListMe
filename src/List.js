@@ -66,7 +66,7 @@ export default function List(props) {
       <button onClick={() => props.deleteAllItems(listIndex)}>Remove all items</button>
       <button onClick={() => props.deleteCompletedItems(listIndex)}>Remove completed items</button>
 
-      <div>List category: {props.lists[listIndex].category}
+      <div>Category: {props.lists[listIndex].category}
       </div>
 
       {props.lists[listIndex].items.map((item, index) =>

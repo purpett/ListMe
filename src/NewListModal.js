@@ -1,6 +1,7 @@
 import ReactModal from 'react-modal';
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
+import "./NewListModal.css"
 
 
 export default function NewListModal(props) {
@@ -25,18 +26,21 @@ export default function NewListModal(props) {
       contentLabel='Form to decide list name and category'
       shouldCloseOnEsc={true}
       onRequestClose={props.onClose}
+      className="modal"
     >
-      <div>
+      <form className='modal-content'>
         <label>Name of your list:</label>
         <input
           type="text"
           placeholder="Type here..."
+          autoComplete='off'
+          required="true"
           name="name"
           value={newListInfo.name}
           onChange={handleOnChange}
         />
 
-        <label>Category</label>
+        <label>Category:</label>
         <select
           name="category"
           id="list-category"
@@ -49,9 +53,9 @@ export default function NewListModal(props) {
           <option>Recipes</option>
           <option>Other</option>
         </select>
-        <button onClick={onSubmit} >Create list</button>
-      </div>
-    </ReactModal>
+        <button type="submit" onClick={onSubmit}>Create list</button>
+      </form>
+    </ReactModal >
   )
 }
 
