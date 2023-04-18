@@ -33,18 +33,19 @@ export default function ListItem(props) {
             onChange={() => props.toggleItem(props.listIndex, props.itemIndex)}
           />
         </label>
-        <span onClick={() => setShowForm(!showForm)}>{!showForm && props.item.text}</span>
+        <span className={`${props.item.completed ? 'completed' : ''}`} onClick={() => setShowForm(!showForm)}>{!showForm && props.item.text}</span>
         {showForm && <form onSubmit={handleFormOnSubmit} className='inline-form'>
           <input
             name="text"
             type="text"
             placeholder={props.item.text}
             autoFocus="true"
+            autoComplete='off'
             required="true"
             value={editedItem.text}
             onChange={handleInputOnChange}
             onKeyDown={handleEscForm}
-            id='edit-item-input'
+            className='item-input'
           />
         </form>}
         {/* {!showForm && <button onClick={() => props.deleteListItem(props.listIndex, props.itemIndex)}><img src="/images/trash-can-outline.svg" alt="trash can outline" /></button>} */}

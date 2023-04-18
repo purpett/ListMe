@@ -1,7 +1,18 @@
-#edit-item-input {
-  background-color: #8d7d6c;
-  color: white;
+.item-input {
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  outline: none;
+  color: black;
+  font-size: 1.7rem;
+  border-bottom: solid 1px black;
 }
+
+.item-input:focus,
+.item-input:not(:focus) {
+  font-weight: 500;
+}
+
 
 .list-item div span{
   font-size: 1.7rem;
@@ -17,6 +28,7 @@
 }
 
 .checkbox {
+  display: block;
   appearance: none;
   background-color: #292d2e;
   margin: 0;
@@ -31,4 +43,8 @@
 
 .checkbox:checked {
   clip-path: polygon(20% 45%, 39% 80%, 77% 14%, 100% 28%, 41% 100%, 0 61%);
+}
+
+.completed {
+  text-decoration: line-through;
 }

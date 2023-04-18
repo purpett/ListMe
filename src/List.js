@@ -101,18 +101,21 @@ export default function List(props) {
             />)}
         </ul>
 
-        {showFormAddItem && <form onSubmit={handleItemFormOnSubmit}>
+        <form onSubmit={handleItemFormOnSubmit}>
           <input
             name="text"
             type="text"
             autoFocus="true"
+            placeholder='Type here...'
+            autoComplete='off'
             required="true"
             value={newItem.text}
             onChange={handleInputOnChange}
             onKeyDown={handleEscForm}
+            className='item-input'
+            id='add'
           />
-        </form>}
-        <button onClick={() => setShowFormAddItem(!showFormAddItem)}><img src="/images/plus-circle.svg" /></button>
+        </form>
       </div>
     </div>
   )
