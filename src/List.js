@@ -1,5 +1,5 @@
 import ListItem from './ListItem'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 // https://reactrouter.com/en/main/route/route
 // https://reactrouter.com/en/main/hooks/use-navigate
 import { useParams, useNavigate } from 'react-router-dom'
@@ -17,6 +17,15 @@ export default function List(props) {
   const [showFormListName, setShowFormListName] = useState(false)
   const navigate = useNavigate()
 
+  useEffect(() => {
+    if (!props.lists[listIndex]) {
+      navigate("/")
+    }
+  })
+
+  if (!props.lists[listIndex]) {
+    return
+  }
 
   function handleInputOnChange(e) {
     setNewItem({ ...newItem, text: e.target.value, completed: false })
@@ -36,7 +45,6 @@ export default function List(props) {
   function handleNameFormOnSubmit(e) {
     e.preventDefault()
     props.editListName(newListName.name, listIndex)
-    setNewListName({ name: "" })
     setShowFormListName(false)
   }
 
@@ -52,21 +60,24 @@ export default function List(props) {
       <div className='header'>
         <div className='header-left'>
           {!showFormListName && <h1>{props.lists[listIndex].name}</h1>}
-          <div className='category'>
+          {!showFormListName && props.lists[listIndex].category && <div className='category'>
             <span>&nbsp; | &nbsp;</span> {props.lists[listIndex].category}
-          </div>
-          {showFormListName && <form onSubmit={handleNameFormOnSubmit}>
-            <input
-              name="name"
-              type="text"
-              autoFocus="true"
-              required="true"
-              value={newListName.name}
-              onChange={handleNewNameInputOnChange}
-              onKeyDown={handleEscForm}
-            />
-          </form>}
-          <button className='dark-btn' id='edit-name-btn' onClick={() => setShowFormListName(!showFormListName)}>Edit name</button>
+          </div>}
+          {showFormListName && (
+            <form onSubmit={handleNameFormOnSubmit} className="inline-form">
+              <input
+                name="name"
+                type="text"
+                autoFocus="true"
+                required="true"
+                value={newListName.name}
+                onChange={handleNewNameInputOnChange}
+                onKeyDown={handleEscForm}
+                id='edit-form-input'
+              />
+            </form>
+          )}
+          <img className="edit-btn" onClick={() => setShowFormListName(!showFormListName)} src="/images/pencil-outline.svg" alt="pencil outline" />
           <hr />
         </div>
       </div>
@@ -77,16 +88,18 @@ export default function List(props) {
       </div>
 
       <div className='list-content'>
-        {props.lists[listIndex].items.map((item, index) =>
-          <ListItem
-            item={item}
-            key={index}
-            itemIndex={index}
-            toggleItem={props.toggleItem}
-            listIndex={listIndex}
-            deleteListItem={props.deleteListItem}
-            editListItem={props.editListItem}
-          />)}
+        <ul>
+          {props.lists[listIndex].items.map((item, index) =>
+            <ListItem
+              item={item}
+              key={index}
+              itemIndex={index}
+              toggleItem={props.toggleItem}
+              listIndex={listIndex}
+              deleteListItem={props.deleteListItem}
+              editListItem={props.editListItem}
+            />)}
+        </ul>
 
         {showFormAddItem && <form onSubmit={handleItemFormOnSubmit}>
           <input

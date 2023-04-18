@@ -89,7 +89,6 @@ function App() {
       }
       return list
     })
-    console.log(updatedLists)
     setLists(updatedLists)
   }
 

@@ -1,0 +1,16 @@
+#edit-item-input {
+  background-color: #8d7d6c;
+  color: white;
+}
+
+.list-item div span{
+  font-size: 1.7rem;
+}
+
+.list-item {
+  margin-bottom: 1.5rem;
+}
+
+.list-item div {
+  display: flex;
+}

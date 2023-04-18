@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import './App.css'
+import './ListItem.css'
 
 export default function ListItem(props) {
-  const [newItem, setNewItem] = useState({ text: props.item.text, completed: false })
+  const [editedItem, setEditedItem] = useState({ text: props.item.text, completed: false })
   const [showForm, setShowForm] = useState(false)
 
   function handleInputOnChange(e) {
-    setNewItem({ ...newItem, text: e.target.value, completed: false })
+    setEditedItem({ ...editedItem, text: e.target.value, completed: false })
   }
 
   function handleFormOnSubmit(e) {
     e.preventDefault()
-    props.editListItem(newItem.text, props.listIndex, props.itemIndex)
-    setNewItem({ text: "", completed: false })
+    props.editListItem(editedItem.text, props.listIndex, props.itemIndex)
     setShowForm(false)
   }
 
@@ -23,24 +23,30 @@ export default function ListItem(props) {
   }
 
   return (
-    <div>
-      <li>
+    <li className='list-item'>
+      <div>
+        <input
+          type="checkbox"
+          checked={props.item.completed}
+          onChange={() => props.toggleItem(props.listIndex, props.itemIndex)}
+        />
         <span onClick={() => setShowForm(!showForm)}>{!showForm && props.item.text}</span>
-        {showForm && <form onSubmit={handleFormOnSubmit}>
+        {showForm && <form onSubmit={handleFormOnSubmit} className='inline-form'>
           <input
             name="text"
             type="text"
             placeholder={props.item.text}
             autoFocus="true"
             required="true"
-            value={newItem.text}
+            value={editedItem.text}
             onChange={handleInputOnChange}
             onKeyDown={handleEscForm}
+            id='edit-item-input'
           />
         </form>}
-        {!showForm && <button onClick={() => props.toggleItem(props.listIndex, props.itemIndex)}><img src="/images/check.svg" /></button>}
-        {!showForm && <button onClick={() => props.deleteListItem(props.listIndex, props.itemIndex)}><img src="/images/trash-can-outline.svg" alt="trash can outline" /></button>}
-      </li>
-    </div>
+        {/* {!showForm && <button onClick={() => props.toggleItem(props.listIndex, props.itemIndex)}><img src="/images/check.svg" /></button>}
+          {!showForm && <button onClick={() => props.deleteListItem(props.listIndex, props.itemIndex)}><img src="/images/trash-can-outline.svg" alt="trash can outline" /></button>} */}
+      </div>
+    </li>
   )
 }
