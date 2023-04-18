@@ -6,7 +6,7 @@ import NewListModal from './NewListModal'
 export default function Sidebar(props) {
   return (
     <nav>
-      <Link to='/'>Homepage</Link>
+      <Link className="homepage" to='/'>LISTME</Link>
       <button className="new-list-button" onClick={props.showModal}>New list</button>
       <AllLists lists={props.lists} />
     </nav>
