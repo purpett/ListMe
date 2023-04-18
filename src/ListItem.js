@@ -25,11 +25,14 @@ export default function ListItem(props) {
   return (
     <li className='list-item'>
       <div>
-        <input
-          type="checkbox"
-          checked={props.item.completed}
-          onChange={() => props.toggleItem(props.listIndex, props.itemIndex)}
-        />
+        <label>
+          <input
+            type="checkbox"
+            className='checkbox'
+            checked={props.item.completed}
+            onChange={() => props.toggleItem(props.listIndex, props.itemIndex)}
+          />
+        </label>
         <span onClick={() => setShowForm(!showForm)}>{!showForm && props.item.text}</span>
         {showForm && <form onSubmit={handleFormOnSubmit} className='inline-form'>
           <input
@@ -44,8 +47,7 @@ export default function ListItem(props) {
             id='edit-item-input'
           />
         </form>}
-        {/* {!showForm && <button onClick={() => props.toggleItem(props.listIndex, props.itemIndex)}><img src="/images/check.svg" /></button>}
-          {!showForm && <button onClick={() => props.deleteListItem(props.listIndex, props.itemIndex)}><img src="/images/trash-can-outline.svg" alt="trash can outline" /></button>} */}
+        {/* {!showForm && <button onClick={() => props.deleteListItem(props.listIndex, props.itemIndex)}><img src="/images/trash-can-outline.svg" alt="trash can outline" /></button>} */}
       </div>
     </li>
   )

@@ -13,4 +13,22 @@
 
 .list-item div {
   display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  appearance: none;
+  background-color: #292d2e;
+  margin: 0;
+  margin-right: 1rem;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+}
+
+.checkbox:checked {
+  clip-path: polygon(20% 45%, 39% 80%, 77% 14%, 100% 28%, 41% 100%, 0 61%);
 }
