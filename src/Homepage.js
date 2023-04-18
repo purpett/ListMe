@@ -7,11 +7,14 @@ export default function Homepage(props) {
 
 
   return (
-    <div>
-      <h1>Welcome to ListMe</h1>
-      <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+    <div className='Homepage'>
+      <div>
+        <p className='welcome-to'>Welcome to</p>
+        <h1>LISTME</h1>
+      </div>
+      <div className='description'>Keep track of all your tasks, interests, and reminders with ListMe. Our app comes with pre-populated suggestions to get you started, but you can easily add, edit, and delete items as you need. With the ability to create and edit multiple lists, you'll never forget a thing. Stay organized with our list-making tool!</div>
 
-      <button onClick={props.showModal}>New list</button>
+      <p className='new-list'><button onClick={props.showModal}>New list</button></p>
 
       <div className='placeholder'>
         <img src="" alt="UI preview"></img>

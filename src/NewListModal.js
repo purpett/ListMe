@@ -18,9 +18,6 @@ export default function NewListModal(props) {
     navigate(`/lists/${props.lists.length}`)
   }
 
-  console.log(props.lists)
-
-
   return (
     // https://reactcommunity.org/react-modal/ for react-modal documentation
     <ReactModal
