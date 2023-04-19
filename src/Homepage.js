@@ -20,7 +20,11 @@ export default function Homepage(props) {
       <p className='new-list'><button className='dark-btn' onClick={props.showModal}>New list</button></p>
 
       <p className="how-to">How to:</p>
-      <div className="preview"></div>
+      <div className="preview">
+        <video controls loop>
+          <source src="/video.mp4" type="video/mp4" />
+        </video>
+      </div>
 
     </div>
   )

@@ -41,14 +41,15 @@ hr {
   height: 500px;
   border: 3px solid black;
   margin: 0 auto;
-  background-image: url("/public/images/list-screenshot.png");
-  background-position: center;
-  background-size: cover;
   box-shadow: rgba(0, 0, 0, 0.433) 3px 4px 12px;;
 }
 
 .how-to {
   font-size: 1.5rem;
+}
+
+.preview video {
+  max-width: 100%;
 }
 
 @media screen and (max-width: 800px) {
