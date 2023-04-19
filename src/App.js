@@ -181,21 +181,15 @@ function App() {
 
   return (
     <div className="App">
-      <AppContext.Provider value={{ lists }}>
+      <AppContext.Provider value={{ lists, createListItem, editListItem, deleteListItem, deleteAllItems, deleteCompletedItems, toggleItem }}>
         <Sidebar showModal={() => setShowNewListModal(true)} lists={lists} />
         <Routes>
           <Route path="/" element={<Homepage showModal={() => setShowNewListModal(true)} />} />
           <Route
             path="/lists/:listIndex"
             element={<List
-              createListItem={createListItem}
               editListName={editListName}
               deleteList={deleteList}
-              editListItem={editListItem}
-              deleteListItem={deleteListItem}
-              deleteAllItems={deleteAllItems}
-              deleteCompletedItems={deleteCompletedItems}
-              toggleItem={toggleItem}
             />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

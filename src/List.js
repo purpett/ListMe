@@ -11,7 +11,8 @@ import { AppContext } from './Context'
 
 
 export default function List(props) {
-  const { lists } = useContext(AppContext);
+  const { lists, createListItem, deleteAllItems, deleteCompletedItems } = useContext(AppContext);
+
 
   const params = useParams()
   const [newItem, setNewItem] = useState({ text: "", completed: false })
@@ -46,7 +47,7 @@ export default function List(props) {
 
   function handleItemFormOnSubmit(e) {
     e.preventDefault()
-    props.createListItem(listIndex, newItem)
+    createListItem(listIndex, newItem)
     setNewItem({ text: "", completed: false })
   }
 
@@ -95,8 +96,8 @@ export default function List(props) {
       </div>
       <div className='danger-zone'>
         <button className='danger dark-btn' onClick={() => { props.deleteList(listIndex); navigate("/") }}>Delete list</button>
-        <button className='danger dark-btn' onClick={() => props.deleteAllItems(listIndex)}>Remove all items</button>
-        <button className='warning dark-btn' onClick={() => props.deleteCompletedItems(listIndex)}>Remove checked items</button>
+        <button className='danger dark-btn' onClick={() => deleteAllItems(listIndex)}>Remove all items</button>
+        <button className='warning dark-btn' onClick={() => deleteCompletedItems(listIndex)}>Remove checked items</button>
       </div>
 
       <div className='list-content'>
@@ -106,10 +107,7 @@ export default function List(props) {
               item={item}
               key={index}
               itemIndex={index}
-              toggleItem={props.toggleItem}
               listIndex={listIndex}
-              deleteListItem={props.deleteListItem}
-              editListItem={props.editListItem}
             />)}
         </ul>
 

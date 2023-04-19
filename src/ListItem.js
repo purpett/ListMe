@@ -1,10 +1,14 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import './App.css'
 import './ListItem.css'
+import { AppContext } from './Context'
 
 export default function ListItem(props) {
+
   const [editedItem, setEditedItem] = useState({ text: props.item.text, completed: false })
   const [showForm, setShowForm] = useState(false)
+
+  const { editListItem, deleteListItem, toggleItem } = useContext(AppContext);
 
   function handleInputOnChange(e) {
     setEditedItem({ ...editedItem, text: e.target.value, completed: false })
@@ -12,7 +16,7 @@ export default function ListItem(props) {
 
   function handleFormOnSubmit(e) {
     e.preventDefault()
-    props.editListItem(editedItem.text, props.listIndex, props.itemIndex)
+    editListItem(editedItem.text, props.listIndex, props.itemIndex)
     setShowForm(false)
   }
 
@@ -39,7 +43,7 @@ export default function ListItem(props) {
             type="checkbox"
             className='checkbox'
             checked={props.item.completed}
-            onChange={() => props.toggleItem(props.listIndex, props.itemIndex)}
+            onChange={() => toggleItem(props.listIndex, props.itemIndex)}
           />
         </label>
         {!showForm && <span
@@ -63,7 +67,7 @@ export default function ListItem(props) {
           />
         </form>}
         <div className="trash-container">
-          {!showForm && <img className="hidden delete-btn" src="/images/trash-can-outline.svg" alt="trash can outline" onClick={() => props.deleteListItem(props.listIndex, props.itemIndex)} />}
+          {!showForm && <img className="hidden delete-btn" src="/images/trash-can-outline.svg" alt="trash can outline" onClick={() => deleteListItem(props.listIndex, props.itemIndex)} />}
         </div>
       </div>
     </li>
