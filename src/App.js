@@ -132,17 +132,21 @@ function App() {
       .then((response) => response.json())
       .then((results) => {
         const selectedItems = getRandomItems(results.results)
-        const titles = selectedItems.map((item) => `${item.original_title}`)
-        console.log(titles)
+        const titles = selectedItems.map((item) => item.original_title)
         return titles.map((title) => ({ text: title, completed: false }))
       })
       .catch((error) => console.log("ERROR", error))
   }
 
-  window.movies = getItemsFromMoviesAPI
-
   function getItemsFromRecipesAPI() {
-
+    return fetch("https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&rapidapi-key=8f3d47ab4dmsh4bd221be9d6f2e7p123996jsn105aec259d96")
+      .then((response) => response.json())
+      .then((results) => {
+        const selectedItems = getRandomItems(results.results)
+        const titles = selectedItems.map((item) => item.name)
+        return titles.map((title) => ({ text: title, completed: false }))
+      })
+      .catch((error) => console.log("ERROR", error))
   }
 
   function getItemsFromAPI(category) {
