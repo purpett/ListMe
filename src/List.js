@@ -56,6 +56,11 @@ export default function List(props) {
     setShowFormListName(false)
   }
 
+  function enableForm() {
+    setNewListName(props.lists[listIndex])
+    setShowFormListName(!showFormListName)
+  }
+
   return (
     <div className='List'>
       <div className='header'>
@@ -80,7 +85,7 @@ export default function List(props) {
               />
             </form>
           )}
-          <img className="edit-btn" onClick={() => setShowFormListName(!showFormListName)} src="/images/pencil-outline.svg" alt="pencil outline" />
+          <img className="edit-btn" onClick={enableForm} src="/images/pencil-outline.svg" alt="pencil outline" />
           <hr />
         </div>
       </div>
@@ -109,7 +114,7 @@ export default function List(props) {
             name="text"
             type="text"
             autoFocus="true"
-            placeholder='Type here...'
+            placeholder='Type here to add...'
             autoComplete='off'
             required="true"
             value={newItem.text}

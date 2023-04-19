@@ -42,12 +42,12 @@ export default function ListItem(props) {
             onChange={() => props.toggleItem(props.listIndex, props.itemIndex)}
           />
         </label>
-        <span
-          className={`${props.item.completed ? 'completed' : ''}`}
+        {!showForm && <span
+          className={`${props.item.completed ? 'completed' : ''} item-text`}
           onClick={enableForm}>
-          {!showForm && props.item.text}
-        </span>
-        {showForm && <form onSubmit={handleFormOnSubmit} className='inline-form'>
+          {props.item.text}
+        </span>}
+        {showForm && <form onSubmit={handleFormOnSubmit} className="edit-item-form">
           <input
             name="text"
             type="text"
@@ -62,7 +62,9 @@ export default function ListItem(props) {
             className='item-input'
           />
         </form>}
-        {!showForm && <img className="hidden delete-btn" src="/images/trash-can-outline.svg" alt="trash can outline" onClick={() => props.deleteListItem(props.listIndex, props.itemIndex)} />}
+        <div className="trash-container">
+          {!showForm && <img className="hidden delete-btn" src="/images/trash-can-outline.svg" alt="trash can outline" onClick={() => props.deleteListItem(props.listIndex, props.itemIndex)} />}
+        </div>
       </div>
     </li>
   )
