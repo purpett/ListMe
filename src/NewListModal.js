@@ -14,11 +14,15 @@ export default function NewListModal(props) {
     setNewListInfo({ ...newListInfo, [e.target.name]: e.target.value })
   }
 
-  function onSubmit() {
-    props.createList(newListInfo)
-    props.onClose()
-    setNewListInfo({ name: "", category: "", items: [] })
-    navigate(`/lists/${props.lists.length}`)
+  function onSubmit(e) {
+    e.preventDefault()
+
+    props.getItemsFromAPI(newListInfo.category).then(items => {
+      props.createList({ ...newListInfo, items: items })
+      props.onClose()
+      setNewListInfo({ name: "", category: "", items: [] })
+      navigate(`/lists/${props.lists.length}`)
+    })
   }
 
   return (
@@ -30,13 +34,13 @@ export default function NewListModal(props) {
       onRequestClose={props.onClose}
       className="modal"
     >
-      <form className='modal-content'>
+      <form className='modal-content' onSubmit={onSubmit}>
         <label>Name of your list:</label>
         <input
           type="text"
           placeholder="Type here..."
           autoComplete='off'
-          required="true"
+          required
           name="name"
           value={newListInfo.name}
           onChange={handleOnChange}
@@ -48,14 +52,15 @@ export default function NewListModal(props) {
           id="list-category"
           value={newListInfo.category}
           onChange={handleOnChange}
+          required
         >
-          <option>Select category:</option>
+          <option value="">Select category:</option>
           <option>Movies</option>
           <option>Books</option>
           <option>Recipes</option>
           <option>Other</option>
         </select>
-        <button type="submit" onClick={onSubmit}>Create list</button>
+        <button type="submit">Create list</button>
       </form>
     </ReactModal >
   )

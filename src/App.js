@@ -58,6 +58,11 @@ function App() {
     updateList(listIndex, { name: lists[listIndex].name, items: updatedItems })
   }
 
+  function createListItemsFromArray(listIndex, newItemsArray) {
+    const updatedItems = [...lists[listIndex].items, ...newItemsArray]
+    updateList(listIndex, { name: lists[listIndex].name, items: updatedItems })
+  }
+
   function editListItem(newText, listIndex, itemIndex) {
     const updatedItems = lists[listIndex].items.map((item, indx) => {
       if (indx === itemIndex) {
@@ -104,6 +109,46 @@ function App() {
     updateList(listIndex, { name: lists[listIndex].name, items: updatedItems })
   }
 
+
+  // mixes the items of an array and selects the first 5 (times)
+  function getRandomItems(array, times = 5) {
+    const shuffledArray = array.sort(() => 0.5 - Math.random());
+    return shuffledArray.slice(0, times)
+  }
+
+  function getItemsFromBooksAPI() {
+    return fetch("https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=kPxbWK56GBd1bymOqb49e4KDiwbdAZUd")
+      .then((response) => response.json())
+      .then((results) => {
+        const selectedItems = getRandomItems(results.results)
+        const titles = selectedItems.map((item) => `${item.title}, by ${item.author}`)
+        return titles.map((title) => ({ text: title, completed: false }))
+      })
+      .catch((error) => console.log("ERROR", error))
+  }
+
+  function getItemsFromMoviesAPI() {
+
+  }
+
+  function getItemsFromRecipesAPI() {
+
+  }
+
+  function getItemsFromAPI(category) {
+    console.log(category)
+    if (category === 'Movies') {
+      return getItemsFromMoviesAPI()
+    } else if (category === 'Books') {
+      return getItemsFromBooksAPI()
+    } else if (category === 'Recipes') {
+      return getItemsFromRecipesAPI()
+    } else {
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve
+      return Promise.resolve([])
+    }
+  }
+
   return (
     <div className="App">
       <Sidebar showModal={() => setShowNewListModal(true)} lists={lists} />
@@ -124,7 +169,7 @@ function App() {
           />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-      <NewListModal lists={lists} isOpen={showNewListModal} onClose={() => setShowNewListModal(false)} createList={createList} />
+      <NewListModal lists={lists} isOpen={showNewListModal} onClose={() => setShowNewListModal(false)} createList={createList} getItemsFromAPI={getItemsFromAPI} />
     </div>
   );
 }

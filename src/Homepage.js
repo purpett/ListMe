@@ -23,7 +23,7 @@ export default function Homepage(props) {
         <img src="" alt="UI preview"></img>
       </div>
 
-
+      <button onClick={() => props.getBooksAPI()}>GET API</button>
     </div>
   )
 }
