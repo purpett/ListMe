@@ -11,9 +11,9 @@ import { AppContext } from './Context';
 
 function App() {
 
-  // type of lists: 
+  // structure of lists: 
   // [
-  //   // A single list object
+  //   // A single list
   //   {
   //     name: "string", => list name
   //     category: "string", => list category
@@ -148,7 +148,7 @@ function App() {
       .then((response) => response.json())
       .then((results) => {
         const selectedItems = getRandomItems(results.results)
-        const titles = selectedItems.map((item) => item.original_title)
+        const titles = selectedItems.map((item) => item.title)
         return titles.map((title) => ({ text: title, completed: false }))
       })
       .catch((error) => console.log("ERROR", error))
