@@ -11,7 +11,6 @@ import './App.css'
 export default function List(props) {
   const params = useParams()
   const [newItem, setNewItem] = useState({ text: "", completed: false })
-  const [showFormAddItem, setShowFormAddItem] = useState(false)
   const listIndex = parseInt(params.listIndex)
   const [newListName, setNewListName] = useState(props.lists[listIndex])
   const [showFormListName, setShowFormListName] = useState(false)
@@ -22,6 +21,16 @@ export default function List(props) {
       navigate("/")
     }
   })
+
+  function handleBlur() {
+    setShowFormListName(false)
+  }
+
+  function handleEscForm(e) {
+    if (e.keyCode == 27) {
+      setShowFormListName(false)
+    }
+  }
 
   if (!props.lists[listIndex]) {
     return
@@ -35,7 +44,6 @@ export default function List(props) {
     e.preventDefault()
     props.createListItem(listIndex, newItem)
     setNewItem({ text: "", completed: false })
-    setShowFormAddItem(false)
   }
 
   function handleNewNameInputOnChange(e) {
@@ -46,13 +54,6 @@ export default function List(props) {
     e.preventDefault()
     props.editListName(newListName.name, listIndex)
     setShowFormListName(false)
-  }
-
-  function handleEscForm(e) {
-    if (e.keyCode == 27) {
-      setShowFormListName(false)
-      setShowFormAddItem(false)
-    }
   }
 
   return (
@@ -74,6 +75,7 @@ export default function List(props) {
                 value={newListName.name}
                 onChange={handleNewNameInputOnChange}
                 onKeyDown={handleEscForm}
+                onBlur={handleBlur}
                 id='edit-form-input'
               />
             </form>

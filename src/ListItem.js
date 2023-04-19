@@ -16,6 +16,10 @@ export default function ListItem(props) {
     setShowForm(false)
   }
 
+  function handleBlur() {
+    setShowForm(false)
+  }
+
   function handleEscForm(e) {
     if (e.keyCode == 27) {
       setShowForm()
@@ -45,6 +49,7 @@ export default function ListItem(props) {
             value={editedItem.text}
             onChange={handleInputOnChange}
             onKeyDown={handleEscForm}
+            onBlur={handleBlur}
             className='item-input'
           />
         </form>}
