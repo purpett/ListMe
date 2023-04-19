@@ -69,6 +69,7 @@ export default function List(props) {
                 name="name"
                 type="text"
                 autoFocus="true"
+                autoComplete='off'
                 required="true"
                 value={newListName.name}
                 onChange={handleNewNameInputOnChange}

@@ -19,9 +19,8 @@ export default function Homepage(props) {
       <hr />
       <p className='new-list'><button className='dark-btn' onClick={props.showModal}>New list</button></p>
 
-      <div className='placeholder'>
-        <img src="" alt="UI preview"></img>
-      </div>
+      <p className="how-to">How to:</p>
+      <div className="preview"></div>
 
     </div>
   )
