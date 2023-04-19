@@ -26,6 +26,11 @@ export default function ListItem(props) {
     }
   }
 
+  function enableForm() {
+    setEditedItem({ text: props.item.text, completed: false })
+    setShowForm(!showForm)
+  }
+
   return (
     <li className='list-item'>
       <div>
@@ -37,7 +42,11 @@ export default function ListItem(props) {
             onChange={() => props.toggleItem(props.listIndex, props.itemIndex)}
           />
         </label>
-        <span className={`${props.item.completed ? 'completed' : ''}`} onClick={() => setShowForm(!showForm)}>{!showForm && props.item.text}</span>
+        <span
+          className={`${props.item.completed ? 'completed' : ''}`}
+          onClick={enableForm}>
+          {!showForm && props.item.text}
+        </span>
         {showForm && <form onSubmit={handleFormOnSubmit} className='inline-form'>
           <input
             name="text"
