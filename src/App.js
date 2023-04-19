@@ -30,6 +30,12 @@ function App() {
   const [lists, setLists] = useState([])
   const [showNewListModal, setShowNewListModal] = useState(false);
 
+  function storeState() {
+    localStorage.setItem('state', JSON.stringify(lists))
+  }
+
+  useEffect(storeState, [lists])
+  console.log()
 
   function createList(newList) {
     setLists([...lists, newList])
