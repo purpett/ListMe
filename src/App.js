@@ -184,7 +184,7 @@ function App() {
     <div className="App">
       <AppContext.Provider value={{ lists, createListItem, editListItem, deleteListItem, deleteAllItems, deleteCompletedItems, toggleItem }}>
         <div className="open-sidebar" onClick={() => setNavIsOpen(true)}>
-          open
+          <img src="/images/menu.svg" alt="menu icon" />
         </div>
         <Sidebar isOpen={navIsOpen} close={() => setNavIsOpen(false)} showModal={() => setShowNewListModal(true)} lists={lists} />
         <Routes>
