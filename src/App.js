@@ -128,8 +128,18 @@ function App() {
   }
 
   function getItemsFromMoviesAPI() {
-
+    return fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=79022de2f93a565afea3fa4b02c913d4&language=en-US&page=1")
+      .then((response) => response.json())
+      .then((results) => {
+        const selectedItems = getRandomItems(results.results)
+        const titles = selectedItems.map((item) => `${item.original_title}`)
+        console.log(titles)
+        return titles.map((title) => ({ text: title, completed: false }))
+      })
+      .catch((error) => console.log("ERROR", error))
   }
+
+  window.movies = getItemsFromMoviesAPI
 
   function getItemsFromRecipesAPI() {
 
