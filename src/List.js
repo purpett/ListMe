@@ -1,23 +1,27 @@
 import ListItem from './ListItem'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 // https://reactrouter.com/en/main/route/route
 // https://reactrouter.com/en/main/hooks/use-navigate
 import { useParams, useNavigate } from 'react-router-dom'
 import './List.css'
 import './App.css'
+import { AppContext } from './Context'
+
 
 
 
 export default function List(props) {
+  const { lists } = useContext(AppContext);
+
   const params = useParams()
   const [newItem, setNewItem] = useState({ text: "", completed: false })
   const listIndex = parseInt(params.listIndex)
-  const [newListName, setNewListName] = useState(props.lists[listIndex])
+  const [newListName, setNewListName] = useState(lists[listIndex])
   const [showFormListName, setShowFormListName] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (!props.lists[listIndex]) {
+    if (!lists[listIndex]) {
       navigate("/")
     }
   })
@@ -32,7 +36,7 @@ export default function List(props) {
     }
   }
 
-  if (!props.lists[listIndex]) {
+  if (!lists[listIndex]) {
     return
   }
 
@@ -57,7 +61,7 @@ export default function List(props) {
   }
 
   function enableForm() {
-    setNewListName(props.lists[listIndex])
+    setNewListName(lists[listIndex])
     setShowFormListName(!showFormListName)
   }
 
@@ -65,9 +69,9 @@ export default function List(props) {
     <div className='List'>
       <div className='header'>
         <div className='header-left'>
-          {!showFormListName && <h1>{props.lists[listIndex].name}</h1>}
-          {!showFormListName && props.lists[listIndex].category && <div className='category'>
-            <span>&nbsp; | &nbsp;</span> {props.lists[listIndex].category}
+          {!showFormListName && <h1>{lists[listIndex].name}</h1>}
+          {!showFormListName && lists[listIndex].category && <div className='category'>
+            <span>&nbsp; | &nbsp;</span> {lists[listIndex].category}
           </div>}
           {showFormListName && (
             <form onSubmit={handleNameFormOnSubmit} className="inline-form">
@@ -97,7 +101,7 @@ export default function List(props) {
 
       <div className='list-content'>
         <ul>
-          {props.lists[listIndex].items.map((item, index) =>
+          {lists[listIndex].items.map((item, index) =>
             <ListItem
               item={item}
               key={index}
