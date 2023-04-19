@@ -3,12 +3,13 @@ ul{
   padding: 0;
 }
 
-nav{
+nav {
   background-color: #292d2e;
   color: white;
   flex-basis: 15%;
   text-align: start;
   padding: 1.5rem;
+  min-width: 12rem;
 }
 
 nav .new-list-button {
@@ -53,4 +54,20 @@ nav .new-list-button:active {
   transform: scale(1.04);
   text-decoration: underline;
   text-decoration-thickness: 1px;
+}
+
+@media screen and (max-width: 800px) {
+  nav {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+    transform: translateX(-100%);
+  }
+
+  nav.open {
+    transform: translateX(0);
+  }
 }

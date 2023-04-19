@@ -1,5 +1,3 @@
-
-
 .Homepage {
   background-color: #d8c6b3;
   flex: 1;
@@ -51,4 +49,10 @@ hr {
 
 .how-to {
   font-size: 1.5rem;
+}
+
+@media screen and (max-width: 800px) {
+  .how-to, .preview {
+    display: none;
+  }
 }

@@ -35,31 +35,36 @@ export default function NewListModal(props) {
       className="modal"
     >
       <form className='modal-content' onSubmit={onSubmit}>
-        <label>Name of your list:</label>
-        <input
-          type="text"
-          placeholder="Type here..."
-          autoComplete='off'
-          required
-          name="name"
-          value={newListInfo.name}
-          onChange={handleOnChange}
-        />
-
-        <label>Category:</label>
-        <select
-          name="category"
-          id="list-category"
-          value={newListInfo.category}
-          onChange={handleOnChange}
-          required
-        >
-          <option value="">Select category:</option>
-          <option>Movies</option>
-          <option>Books</option>
-          <option>Recipes</option>
-          <option>Other</option>
-        </select>
+        <div className='list-name-form'>
+          <label>Name of your list:</label>
+          <input
+            type="text"
+            placeholder="Type here..."
+            autoComplete='off'
+            required
+            name="name"
+            value={newListInfo.name}
+            onChange={handleOnChange}
+          />
+        </div>
+        <div className='list-category-form'>
+          <label>Category:</label>
+          <div>
+            <select
+              name="category"
+              id="list-category"
+              value={newListInfo.category}
+              onChange={handleOnChange}
+              required
+            >
+              <option value="">Select category:</option>
+              <option>Movies</option>
+              <option>Books</option>
+              <option>Recipes</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
         <button type="submit">Create list</button>
       </form>
     </ReactModal >

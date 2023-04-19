@@ -7,7 +7,6 @@
   min-height: 100vh;
   box-sizing: border-box;
   background-color: #d8c6b3;
-  
 }
 
 .dark-btn {
@@ -42,10 +41,37 @@
   display: inline;
 }
 
+.open-sidebar, .close-sidebar {
+  display: none;
+}
 
+@media screen and (max-width: 800px) {
+  .App {
+    padding-top: 1rem;
+  }
 
+  nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+  }
 
-/* @media (prefers-reduced-motion: no-preference) {
+  .open-sidebar {
+    display: inline-block;
+    position: 'fixed';
+    top: 0;
+    height: 2rem;
+    left: 0
+  }
   
-} */
-
+  .close-sidebar {
+    display: block;
+  }
+}

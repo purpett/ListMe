@@ -30,6 +30,7 @@ function App() {
 
   const [lists, setLists] = useState(loadState())
   const [showNewListModal, setShowNewListModal] = useState(false);
+  const [navIsOpen, setNavIsOpen] = useState(false)
 
   function storeState() {
     localStorage.setItem('state', JSON.stringify(lists))
@@ -182,7 +183,10 @@ function App() {
   return (
     <div className="App">
       <AppContext.Provider value={{ lists, createListItem, editListItem, deleteListItem, deleteAllItems, deleteCompletedItems, toggleItem }}>
-        <Sidebar showModal={() => setShowNewListModal(true)} lists={lists} />
+        <div className="open-sidebar" onClick={() => setNavIsOpen(true)}>
+          open
+        </div>
+        <Sidebar isOpen={navIsOpen} close={() => setNavIsOpen(false)} showModal={() => setShowNewListModal(true)} lists={lists} />
         <Routes>
           <Route path="/" element={<Homepage showModal={() => setShowNewListModal(true)} />} />
           <Route

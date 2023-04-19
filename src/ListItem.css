@@ -73,3 +73,10 @@
 .trash-container {
   flex-basis: 50px;
 }
+
+
+@media screen and (max-width: 800px) {
+  .list-item div span {
+    font-size: 1.4rem;
+  }
+}
