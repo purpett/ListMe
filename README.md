@@ -117,22 +117,32 @@ Select a Project Idea of your own. But the user must be able to:
 
 ## Build/Code Process
 
-1. Starting from App.js, I created the state where the data structure of the whole app would be stored. 
-2. I wrote all the functions regarding a single list:
+#### 1. Starting from App.js, I created the state where the data structure of the whole app would be stored. 
+#### 2. I wrote all the functions regarding a single list:
+
 ![Code screenshot of functions about creating/editing/deleting a list](/public/images/list-functions.png)
-3. I wrote all the functions regarding a single list item:
+
+#### 3. I wrote all the functions regarding a single list item:
+
 ![Code screenshot of functions about creating/editing/deleting list items](/public/images/list-items-functions.png)
-4. I wrote a function whose sole purpose is updating the state. It gets called every time an action modifies the state:
+
+#### 4. I wrote a function whose sole purpose is updating the state. It gets called every time an action modifies the state:
+
 ![Code snippet of a function that updates the state](/public/images/state-update.png)
-5. After choosing and testing the selected APIs, I wrote one function per category: Movies, Books, and Recipes. These return Promises, which made working on the API results other than within the functions. 
-6. I wrote a function that selects 5 random elements from an array. This function gets called in all 3 functions that make API calls for the different categories:
+
+#### 5. After choosing and testing the selected APIs, I wrote one function per category: Movies, Books, and Recipes. These return Promises, which made working on the API results other than within the functions. 
+
+#### 6. I wrote a function that selects 5 random elements from an array. This function gets called in all 3 functions that make API calls for the different categories:
+
 ![Code snippet of a function that gets 5 random elements from array](/public/images/shuffle.png)
 
-7. I wrote a function that calls one of the 3 API functions depending on which category the user has chosen for a list. If a user chooses 'Other', the function returns a Promise with an empty array, so the new list doesn't have any suggestions
+#### 7. I wrote a function that calls one of the 3 API functions depending on which category the user has chosen for a list. If a user chooses 'Other', the function returns a Promise with an empty array, so the new list doesn't have any suggestions
+
 ![Code snippet of a function that makes API calls depending on category chosen](/public/images/make-api-call.png)
-8. I connected all the different components and parts of the code
-9. Once I had a well-functioning application, I wrote my CSS per component (instead of a single file) to style the UI.
-10. Finally, I worked on fixing bugs and improving the user experience as much as I could. 
+
+#### 8. I connected all the different components and parts of the code
+#### 9. Once I had a well-functioning application, I wrote my CSS per component (instead of a single file) to style the UI.
+#### 10. Finally, I worked on fixing bugs and improving the user experience as much as I could. 
 
 ## Challenges
 
