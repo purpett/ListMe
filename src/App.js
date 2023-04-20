@@ -112,17 +112,6 @@ function App() {
     updateList(listIndex, { name: lists[listIndex].name, items: updatedItems })
   }
 
-  // updates the lists state with any changes. Gets called at the end of every function that changes the state
-  function updateList(listIndex, newList) {
-    const updatedLists = lists.map((list, i) => {
-      if (i === listIndex) {
-        return newList
-      }
-      return list
-    })
-    setLists(updatedLists)
-  }
-
   // function to complete items (tick, untick)
   function toggleItem(listIndex, itemIndex) {
     const updatedItems = lists[listIndex].items.map((item, indx) => {
@@ -132,6 +121,17 @@ function App() {
       return item
     })
     updateList(listIndex, { name: lists[listIndex].name, items: updatedItems })
+  }
+
+  // updates the lists state with any changes. Gets called at the end of every function that changes the state
+  function updateList(listIndex, newList) {
+    const updatedLists = lists.map((list, i) => {
+      if (i === listIndex) {
+        return newList
+      }
+      return list
+    })
+    setLists(updatedLists)
   }
 
   // mixes the items of an array and selects the first 5 (5 => times)
@@ -181,7 +181,6 @@ function App() {
 
   // Depending on the category chosen for a list, makes an API call. 
   function getItemsFromAPI(category) {
-    console.log(category)
     if (category === 'Movies') {
       return getItemsFromMoviesAPI()
     } else if (category === 'Books') {
