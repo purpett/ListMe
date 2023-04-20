@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"; //https://reactrouter.com/en/main/co
 import "./AllLists.css"
 import './App.css'
 
-
+// List of lists in the sidebar, to navigate between lists
 export default function AllLists(props) {
   const listLinks = props.lists.map((item, index) => {
     return (

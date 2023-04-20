@@ -5,15 +5,20 @@ import "./NewListModal.css"
 import './App.css'
 
 
-
 export default function NewListModal(props) {
+  // state for the name and category of a new list
   const [newListInfo, setNewListInfo] = useState({ name: "", category: "", items: [] })
+
+  // to redirect to the newly created list when form is submitted
   const navigate = useNavigate()
 
+  // updates local state of list info to receive content of input
   function handleOnChange(e) {
     setNewListInfo({ ...newListInfo, [e.target.name]: e.target.value })
   }
 
+  // gets promise from chosen api, creates a list with the given information and 5 items
+  // resets the form and redirects
   function onSubmit(e) {
     e.preventDefault()
 
