@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/httpsgit%20://list-app.michelabicocchi.com/static/css/main.4d1f5329.css",
-    "main.js": "/httpsgit%20://list-app.michelabicocchi.com/static/js/main.ea85036e.js",
-    "static/js/787.5d81d23c.chunk.js": "/httpsgit%20://list-app.michelabicocchi.com/static/js/787.5d81d23c.chunk.js",
-    "static/media/logo.svg": "/httpsgit%20://list-app.michelabicocchi.com/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/httpsgit%20://list-app.michelabicocchi.com/index.html",
-    "main.4d1f5329.css.map": "/httpsgit%20://list-app.michelabicocchi.com/static/css/main.4d1f5329.css.map",
-    "main.ea85036e.js.map": "/httpsgit%20://list-app.michelabicocchi.com/static/js/main.ea85036e.js.map",
-    "787.5d81d23c.chunk.js.map": "/httpsgit%20://list-app.michelabicocchi.com/static/js/787.5d81d23c.chunk.js.map"
+    "main.css": "/static/css/main.4d1f5329.css",
+    "main.js": "/static/js/main.577ee3c0.js",
+    "static/js/787.5d81d23c.chunk.js": "/static/js/787.5d81d23c.chunk.js",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.4d1f5329.css.map": "/static/css/main.4d1f5329.css.map",
+    "main.577ee3c0.js.map": "/static/js/main.577ee3c0.js.map",
+    "787.5d81d23c.chunk.js.map": "/static/js/787.5d81d23c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4d1f5329.css",
-    "static/js/main.ea85036e.js"
+    "static/js/main.577ee3c0.js"
   ]
 }
