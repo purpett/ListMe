@@ -7,7 +7,7 @@ It allows users to create and edit lists of things. API calls provide the first 
 
 ## Deployment link
 
-Get organised! list-app.michelabicocchi.com/
+Get organised! https://list-app.michelabicocchi.com/
 
 ## Getting started 
 
