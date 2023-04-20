@@ -126,7 +126,7 @@ Select a Project Idea of your own. But the user must be able to:
 
 ![Code screenshot of functions about creating/editing/deleting list items](/public/images/list-items-functions.png)
 
-#### 4. I wrote a function whose sole purpose is updating the state. It gets called every time an action modifies the state:
+#### 4. I wrote a helper function to update a specific list in the state. It gets called every time an action has to replace one individual list in the state:
 
 ![Code snippet of a function that updates the state](/public/images/state-update.png)
 
